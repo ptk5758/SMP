@@ -19,6 +19,7 @@ rl.question("관리자님의 아이디를 입력하세요 : ",  (line : string) 
 
 const database = ["카메라", "조명", "고프로"]
 
+
 function management() {    
     console.log("어서오세요 관리자님")
     console.log("원하시는 서비스를 입력하세요")
@@ -27,7 +28,7 @@ function management() {
         let choice = parseInt(line)  
         switch (choice) {
             case 1: // 장비 조회
-                console.log("장비 조회")
+                printAllEquipemt()
                 break
             case 2: // 장비 등록
                 console.log("장비 등록")
@@ -40,4 +41,10 @@ function management() {
         }
     })
     
+}
+
+
+// 모든 장비를 조회합니다.
+function printAllEquipemt() {
+    console.log(database)
 }
