@@ -43,6 +43,8 @@ function management() {
     
 }
 
+
+// 모든 장비를 조회합니다.
 function printAllEquipemt() {
     console.log(database)
 }
