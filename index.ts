@@ -31,7 +31,7 @@ function management() {
                 printAllEquipemt()
                 break
             case 2: // 장비 등록
-                console.log("장비 등록")
+                registerEquipment()
                 break
             case 3 : // 장비 삭제
                 console.log("장비 삭제")    
@@ -47,4 +47,17 @@ function management() {
 // 모든 장비를 조회합니다.
 function printAllEquipemt() {
     console.log(database)
+}
+
+function registerEquipment(){
+    rl.question("등록할 장비를 입력해 주세요(exit 입력 시 종료): ", 
+    (input: string) => {
+        if(input.toLowerCase() === 'exit'){
+            rl.close()
+        } else {
+            database.push(input);
+            console.log("현재 등록된 장비: ", database)
+            registerEquipment();
+        }
+    })
 }
