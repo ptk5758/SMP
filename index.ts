@@ -19,16 +19,21 @@ rl.question("관리자님의 아이디를 입력하세요 : ",  (line : string) 
 
 const database = ["카메라", "조명", "고프로"];
 
+
 function management() {    
-    console.log("어서오세요 관리자님");
-    console.log("원하시는 서비스를 입력하세요");
-    console.log("1. 장비 조회\n2. 장비 등록\n3. 장비 삭제");
+    console.log("어서오세요 관리자님")
+    equipmentChoice()
+}
+
+
+function equipmentChoice() {
+    console.log("원하시는 서비스를 입력하세요")
+    console.log("1. 장비 조회\n2. 장비 등록\n3. 장비 삭제\n4. 종료")
     rl.question("", (line : string) => {      
-        let choice = parseInt(line);
+        let choice = parseInt(line)
         switch (choice) {
             case 1: // 장비 조회
-                console.log("장비 조회");
-                showallequipment();
+                printAllEquipemt()
                 break
             case 2: // 장비 등록
                 console.log("장비 등록");
@@ -37,10 +42,14 @@ function management() {
                 console.log("장비 삭제");
                 popequipment();
                 break                
+            case 4 : // 종료
+                console.log("종료 됩니다")
+                process.exit()
             default : // 잘못된 입력
-                console.log("잘못된 입력입니다.");
+                console.log("잘못된 입력입니다.")
                 break
         }
+        equipmentChoice()
     })
 }
 function showallequipment() {
@@ -61,4 +70,7 @@ function popequipment() {
         }
         rl.close()
     })
+// 모든 장비를 조회합니다.
+function printAllEquipemt() {
+    console.log(database)
 }
